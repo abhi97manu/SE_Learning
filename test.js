@@ -1,24 +1,27 @@
-function findPeak(arr)
+function mergeInterval(arr)
 {
-    let left = 0;
-    let right = arr.length -1;
-    let mid =0;
-    while (left< right)
+    if(arr.length <= 0) return [];
+
+    const result = [arr[0]];
+    for(let i = 1; i < arr.length ; i++)
     {
-        mid = Math.floor((right+left)/2)
-     
-        
-     if(arr[mid]< arr[mid+1] )
-        {
-            left = mid+1;
-        }
-        else {
-                right = mid;
+        const current  = result[result.length - 1];
+        const next = arr[i]
+console.log("res",result, "next" , next, "current", current);
+        if(current[1] >= next[0])
+            {
+                current[1] = Math.max(current[1], next[1]);
+                console.log (current[1]);
             }
+        else{
+            
+            result.push(next);
+        }
         
     }
-    return left;
+    return result;
 }
 
-const peak = findPeak([1,2,3,3,4,3])
-console.log(peak);
+const res = mergeInterval([[1, 3], [2, 4], [5, 7], [6, 8]]);
+
+console.log(res);

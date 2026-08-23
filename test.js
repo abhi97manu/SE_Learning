@@ -1,27 +1,24 @@
-function mergeInterval(arr)
-{
-    if(arr.length <= 0) return [];
+function twoSum(arr, target) {
 
-    const result = [arr[0]];
-    for(let i = 1; i < arr.length ; i++)
+    const map = new Map();
+let result = []
+    for (let i =0 ; i<=arr.length;i++)
     {
-        const current  = result[result.length - 1];
-        const next = arr[i]
-console.log("res",result, "next" , next, "current", current);
-        if(current[1] >= next[0])
-            {
-                current[1] = Math.max(current[1], next[1]);
-                console.log (current[1]);
-            }
+        const value = target - arr[i]
+        if(!map.has(arr[i]))
+        {
+            map.set(value, i)
+        }
         else{
             
-            result.push(next);
+         result = [map.get(arr[i]),i]
         }
-        
+       
     }
-    return result;
+     return result;
+  
 }
 
-const res = mergeInterval([[1, 3], [2, 4], [5, 7], [6, 8]]);
+const res = twoSum([2,7,11,15,23],18)
 
-console.log(res);
+console.log(res)

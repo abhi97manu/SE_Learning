@@ -7,6 +7,10 @@
 
 **This whole file is for my understanding of the DSA concepts. How i see the approach and how i can tackle it.**  
 
+##Two Sum
+**Problem statement ask us to find the indices whose sum are equal to the target value**
+The idea here is to initialise the hashmap. and for each element in array we get the difference of element value and the target (target - arr[i]). then we check if the hashmap has this value or not.. if not we save this value and the index of the current element.This way we can get the result .
+
 
 ## Find Peak
 

@@ -17,6 +17,10 @@ once we get the current max we will then loop through the 1st index to lenght - 
 **Problem statement ask us to find the indices whose sum are equal to the target value**
 The idea here is to initialise the hashmap. and for each element in array we get the difference of element value and the target (target - arr[i]). then we check if the hashmap has this value or not.. if not we save this value and the index of the current element.This way we can get the result .
 
+## Max Substring without Repeat
+**Problem statement is that we have to fin the longest substring without repeating characters**
+
+TO solve this we need variable sliding window  algo, which suggest hacing two pointers. So Right pointer will move forward and keep pushing the element into the set calculating the max length at each loop until it find already existing one. Once it fine that we will run a while loop and move our left pointer deleting the elemnts untill we get rid of the repeated element. THats it. then we will retunr the max length 
 
 ## Find Peak
 

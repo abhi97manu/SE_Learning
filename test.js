@@ -1,35 +1,26 @@
-function MaxVowel(aa, k)
+function maxSubstring(arr)
 {
-    const arr = aa.split('')
-   
-    let currentMax = 0
-    let MaxVowel = 0;
-
-    for (let i =0; i<k;i++)
-    {   
-        currentMax += isVowel(arr[i]);
-       console.log("first max ", currentMax)
-    }
-    function isVowel(value){
-      
-        if(value == 'a' || value == 'e' || value == 'i' || value =='o' || value == 'u') return 1
-
-        return 0
-    }
-
-    for(let i = 1 ; i< arr.length-k ; i++)
-
+    let a = arr.split('')
+    let maxlength = 0;
+    let seen = new Set()
+    let left = 0;
+    let index = []
+    
+    
+    for(let right=0;right<a.length ; right++)
+    {
+        while(seen.has(a[right]))
         {
-            currentMax += isVowel(arr[i+k -1]) - isVowel(arr[i-1])
-            console.log("next max ", currentMax)
-            MaxVowel = Math.max(currentMax,MaxVowel); 
+            seen.delete(s[left])
+            left++
         }
-
-        return MaxVowel;
+            seen.add(a[right])
+            maxlength = Math.max(maxlength, right-left +1)
+         
+    }
+    return maxlength;
 }
 
-let s = 'leetcode';
-
-let val = MaxVowel(s, 3)
- 
-console.log(val);
+const  s = 'fleet'
+let ans = maxSubstring(s)
+console.log(ans)

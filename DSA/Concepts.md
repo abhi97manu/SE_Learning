@@ -22,6 +22,10 @@ The idea here is to initialise the hashmap. and for each element in array we get
 
 TO solve this we need variable sliding window  algo, which suggest hacing two pointers. So Right pointer will move forward and keep pushing the element into the set calculating the max length at each loop until it find already existing one. Once it fine that we will run a while loop and move our left pointer deleting the elemnts untill we get rid of the repeated element. THats it. then we will retunr the max length 
 
+## Longest Repeating Substring
+**Problem statement ask to find the longest substring having repeating characters by changing charaters k times**
+The approach here is to use variable sliding window algorithm. Will start with left =0 and maxFrequency = 0. for each char in the array we will store its freq in map and get the max frequency (Math.max(maxfreq , the freq of current character)). nopw with the current window size we need to check if the window size - maxfreq > k .why ?? cause we need to check from current window sixe what is the max count of any character, so if we subtract that with window size ..that number of element we need to change .. if that comes out greater than allowed number of changes(k) then only we move left pointer (since we are not allowed to change more than k we change our window). then we return the max length.
+
 ## Find Peak
 
 *As per the problem statement, we need to find any peak in the given array. It doesnt have to be the highest peak.*

@@ -1,26 +1,32 @@
-function maxSubstring(arr)
+function longestRepeatingChar(a,k)
 {
-    let a = arr.split('')
-    let maxlength = 0;
-    let seen = new Set()
+    const arr = a.split('')
     let left = 0;
-    let index = []
-    
-    
-    for(let right=0;right<a.length ; right++)
+    let maxFreq = 0;
+    let maxLength = 0;
+    let map = new Map();
+
+    for(let right =0; right < arr.length ; right ++)
     {
-        while(seen.has(a[right]))
+        char = arr[right]
+        map.set(char, (map.get(char)||0)+1)
+
+        maxFreq = Math.max(maxFreq, map.get(char));
+          
+
+        while((right-left +1) - maxFreq > k)
         {
-            seen.delete(s[left])
-            left++
+           
+            map.set(arr[left], map.get(arr[left])-1)
+            left++;
         }
-            seen.add(a[right])
-            maxlength = Math.max(maxlength, right-left +1)
-         
+        maxLength = Math.max(maxLength , (right-left)+1)
     }
-    return maxlength;
+
+    return maxLength
+
 }
 
-const  s = 'fleet'
-let ans = maxSubstring(s)
+const  s = 'aabbbbb'
+let ans = longestRepeatingChar(s,1)
 console.log(ans)

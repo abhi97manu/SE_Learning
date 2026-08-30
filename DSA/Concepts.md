@@ -7,7 +7,13 @@
 
 **This whole file is for my understanding of the DSA concepts. How i see the approach and how i can tackle it.**  
 
-##Two Sum
+## Max Vowel
+**Problem Statement is to find max count of vowel present in substring of length k**
+To solve this we use sliding window concept/algo we first loop through the first k element to get the count using function isVowel that return 1 or 0.
+once we get the current max we will then loop through the 1st index to lenght - k and add on the isVowel(arr[i+k -1]) (cause we are adding the next value) and subtract the isVowel(arr[i-1] (cause we are getting rid of previous as we are moving the window forward)). This way we can get the current Max of the current window.. then we can take max out of it and return it
+
+
+## Two Sum
 **Problem statement ask us to find the indices whose sum are equal to the target value**
 The idea here is to initialise the hashmap. and for each element in array we get the difference of element value and the target (target - arr[i]). then we check if the hashmap has this value or not.. if not we save this value and the index of the current element.This way we can get the result .
 

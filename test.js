@@ -1,24 +1,35 @@
-function twoSum(arr, target) {
+function MaxVowel(aa, k)
+{
+    const arr = aa.split('')
+   
+    let currentMax = 0
+    let MaxVowel = 0;
 
-    const map = new Map();
-let result = []
-    for (let i =0 ; i<=arr.length;i++)
-    {
-        const value = target - arr[i]
-        if(!map.has(arr[i]))
-        {
-            map.set(value, i)
-        }
-        else{
-            
-         result = [map.get(arr[i]),i]
-        }
-       
+    for (let i =0; i<k;i++)
+    {   
+        currentMax += isVowel(arr[i]);
+       console.log("first max ", currentMax)
     }
-     return result;
-  
+    function isVowel(value){
+      
+        if(value == 'a' || value == 'e' || value == 'i' || value =='o' || value == 'u') return 1
+
+        return 0
+    }
+
+    for(let i = 1 ; i< arr.length-k ; i++)
+
+        {
+            currentMax += isVowel(arr[i+k -1]) - isVowel(arr[i-1])
+            console.log("next max ", currentMax)
+            MaxVowel = Math.max(currentMax,MaxVowel); 
+        }
+
+        return MaxVowel;
 }
 
-const res = twoSum([2,7,11,15,23],18)
+let s = 'leetcode';
 
-console.log(res)
+let val = MaxVowel(s, 3)
+ 
+console.log(val);

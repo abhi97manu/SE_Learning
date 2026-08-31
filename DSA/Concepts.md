@@ -26,6 +26,11 @@ TO solve this we need variable sliding window  algo, which suggest hacing two po
 **Problem statement ask to find the longest substring having repeating characters by changing charaters k times**
 The approach here is to use variable sliding window algorithm. Will start with left =0 and maxFrequency = 0. for each char in the array we will store its freq in map and get the max frequency (Math.max(maxfreq , the freq of current character)). nopw with the current window size we need to check if the window size - maxfreq > k .why ?? cause we need to check from current window sixe what is the max count of any character, so if we subtract that with window size ..that number of element we need to change .. if that comes out greater than allowed number of changes(k) then only we move left pointer (since we are not allowed to change more than k we change our window). then we return the max length.
 
+
+## Valid Paranthesis
+**Problem is to check if the given string has proper paranthesis or not**
+The idea is that we create a hashmap with open and close key -value pair..and maintan a stack.. cause we will be dealing with latest elemnt of the stack.. so we keep on pushing the open paranthesis into the stack. As soon as we find the close one we will check the lenght of stack , if it is 0 that means it is empty..if not we will pop the elemnt and compare that with the hashmap value...if all the elements are covered then we can retrun true.
+
 ## Find Peak
 
 *As per the problem statement, we need to find any peak in the given array. It doesnt have to be the highest peak.*

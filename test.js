@@ -1,32 +1,39 @@
-function longestRepeatingChar(a,k)
+function ValidParanthasis (arr)
 {
-    const arr = a.split('')
-    let left = 0;
-    let maxFreq = 0;
-    let maxLength = 0;
-    let map = new Map();
+    const a = arr.split('');
 
-    for(let right =0; right < arr.length ; right ++)
+    const paranPairs = new Map([
+        [']','['],
+        [')','('],
+        ['}','{']])
+    let latestParan = '';
+    let st = [];
+
+    for (let i = 0 ; i< a.length ; i ++)
     {
-        char = arr[right]
-        map.set(char, (map.get(char)||0)+1)
+         if (st.length === 0) {
+                return false;
+            }
 
-        maxFreq = Math.max(maxFreq, map.get(char));
-          
-
-        while((right-left +1) - maxFreq > k)
+        
+        if(a[i] === ')' || a[i] === '}'|| a[i] === ']')
         {
-           
-            map.set(arr[left], map.get(arr[left])-1)
-            left++;
+            console.log("found",a[i])
+            // if(st === null) return
+            latestParan = st.pop();
+            console.log("pop",latestParan);
+            if(paranPairs.get(a[i]) !== latestParan) return false
+            
         }
-        maxLength = Math.max(maxLength , (right-left)+1)
+        else{
+console.log("push",a[i])
+        st.push(a[i]);
+        }
+         
     }
-
-    return maxLength
-
+    return st.length === 0;
+    
 }
 
-const  s = 'aabbbbb'
-let ans = longestRepeatingChar(s,1)
-console.log(ans)
+let ex = '{([]{}})}';
+console.log(ValidParanthasis(ex));

@@ -1,39 +1,48 @@
-function ValidParanthasis (arr)
-{
-    const a = arr.split('');
+class minstack{
+    constructor(){
+        this.stk = [];
+        this.minstk = [];
 
-    const paranPairs = new Map([
-        [']','['],
-        [')','('],
-        ['}','{']])
-    let latestParan = '';
-    let st = [];
+    }
 
-    for (let i = 0 ; i< a.length ; i ++)
-    {
-         if (st.length === 0) {
-                return false;
-            }
-
-        
-        if(a[i] === ')' || a[i] === '}'|| a[i] === ']')
+    push(val){
+        this.stk.push(val);
+        if(this.minstk.length === 0 || val <= this.minstk[this.minstk.length-1])
         {
-            console.log("found",a[i])
-            // if(st === null) return
-            latestParan = st.pop();
-            console.log("pop",latestParan);
-            if(paranPairs.get(a[i]) !== latestParan) return false
-            
+            this.minstk.push(val);
         }
         else{
-console.log("push",a[i])
-        st.push(a[i]);
+            this.minstk.push(this.minstk[this.minstk.length - 1 ])
         }
-         
     }
-    return st.length === 0;
-    
+
+    pop()
+    {
+        this.stk.pop();
+        this.minstk.pop();
+    }
+
+    top()
+    {
+        return this.minstk[this.minstk.length -1]
+    }
+
+    getmin()
+    {
+         return this.minstk[this.minstk.length -1]
+    }
 }
 
-let ex = '{([]{}})}';
-console.log(ValidParanthasis(ex));
+
+let ex = new minstack();
+
+ex.push(5);
+ex.push(6);
+ex.push(1);
+ex.push(-1);
+ex.pop();
+ex.pop();
+console.log(ex.top());
+console.log(ex.getmin());
+
+

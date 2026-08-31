@@ -31,6 +31,10 @@ The approach here is to use variable sliding window algorithm. Will start with l
 **Problem is to check if the given string has proper paranthesis or not**
 The idea is that we create a hashmap with open and close key -value pair..and maintan a stack.. cause we will be dealing with latest elemnt of the stack.. so we keep on pushing the open paranthesis into the stack. As soon as we find the close one we will check the lenght of stack , if it is 0 that means it is empty..if not we will pop the elemnt and compare that with the hashmap value...if all the elements are covered then we can retrun true.
 
+## Min Stack
+**Create a minstack that will have push, pop, top and minVal with O(1)time complexity**
+To solve this we need two stacks, one regular and the other that will hold the minimum stack. Since minimum stack will have all these function we will create a class with these as its methods. for push fn we will insert into the stack and cehck if the minstack is empty or the value pushing is less then the top value in minstack (since we want the stack to hold min value on top) if not we will push the top element of the minstack again. For Pop fn , we will simply pop out from stack and miinstack both. For top and get min fn we will return the minstack.length -1 value.
+
 ## Find Peak
 
 *As per the problem statement, we need to find any peak in the given array. It doesnt have to be the highest peak.*

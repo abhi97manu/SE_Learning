@@ -1,48 +1,25 @@
-class minstack{
-    constructor(){
-        this.stk = [];
-        this.minstk = [];
+function DailyTemp(arr){
+    let stk = [];
+    let diffDays = Array.from(arr.length).fill(0);
 
-    }
-
-    push(val){
-        this.stk.push(val);
-        if(this.minstk.length === 0 || val <= this.minstk[this.minstk.length-1])
+    for(let i = 0;i<arr.length;i++)
+    {
+        let temp = arr[i];
+        while(stk.length > 0 && stk[stk.length-1][0] < temp)
         {
-            this.minstk.push(val);
+            const [stackTemp, stackIndex] = stk.pop();
+            diffDays[stackIndex] = i - stackIndex;
         }
-        else{
-            this.minstk.push(this.minstk[this.minstk.length - 1 ])
-        }
+        
+        stk.push([arr[i],i]);
+
     }
 
-    pop()
-    {
-        this.stk.pop();
-        this.minstk.pop();
-    }
-
-    top()
-    {
-        return this.minstk[this.minstk.length -1]
-    }
-
-    getmin()
-    {
-         return this.minstk[this.minstk.length -1]
-    }
+    return diffDays;
 }
 
 
-let ex = new minstack();
+const temp = [73,74,56,21,73,78,23]
 
-ex.push(5);
-ex.push(6);
-ex.push(1);
-ex.push(-1);
-ex.pop();
-ex.pop();
-console.log(ex.top());
-console.log(ex.getmin());
-
+console.log(DailyTemp(temp))
 

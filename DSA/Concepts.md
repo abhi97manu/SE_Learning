@@ -35,6 +35,11 @@ The idea is that we create a hashmap with open and close key -value pair..and ma
 **Create a minstack that will have push, pop, top and minVal with O(1)time complexity**
 To solve this we need two stacks, one regular and the other that will hold the minimum stack. Since minimum stack will have all these function we will create a class with these as its methods. for push fn we will insert into the stack and cehck if the minstack is empty or the value pushing is less then the top value in minstack (since we want the stack to hold min value on top) if not we will push the top element of the minstack again. For Pop fn , we will simply pop out from stack and miinstack both. For top and get min fn we will return the minstack.length -1 value.
 
+## Daily Temperature
+**Find how many days one must wait until a warmer temperature occurs**
+To solve this we will use monotonic Stack(stack flows in one direction asc or desc). the concept is to have a stack whihc will keep the temperature and the index ( [StackTemp, StackIndex]) of it. why index ?? cause the difference between the current element index and the last element in stack's index will be the number of days until warmer temperature. Also we will need another array of days filled with 0. Now for each elemnt we will keep on cehcking if the stack is not empty and last element's temp is less than the current temp, if so that means we got the warmer day and we will subtract the current index and last element idex to get the days difference and will the days array index. the check will continue untill we hit the bottom of the stack or the current temp is colder than the stacks last temp. 
+n such a way we  will loop through this monotonic stack pushing the current temp into this stack. 
+
 ## Find Peak
 
 *As per the problem statement, we need to find any peak in the given array. It doesnt have to be the highest peak.*

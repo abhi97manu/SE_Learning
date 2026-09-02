@@ -1,30 +1,3 @@
-<<<<<<< HEAD
-function DailyTemp(arr){
-    let stk = [];
-    let diffDays = Array.from(arr.length).fill(0);
-
-    for(let i = 0;i<arr.length;i++)
-    {
-        let temp = arr[i];
-        while(stk.length > 0 && stk[stk.length-1][0] < temp)
-        {
-            const [stackTemp, stackIndex] = stk.pop();
-            diffDays[stackIndex] = i - stackIndex;
-        }
-        
-        stk.push([arr[i],i]);
-
-    }
-
-    return diffDays;
-}
-
-
-const temp = [73,74,56,21,73,78,23]
-
-console.log(DailyTemp(temp))
-
-=======
 class Node {
     constructor(val){
         this.val = val;
@@ -32,44 +5,26 @@ class Node {
     }
 }
 
-class LinkedList{
-    constructor()
+function removeNth(list , n){
+
+    let dummy = new Node(0);
+    dummy.next = list.head;
+
+    let left = list.head;
+    let right = list.head;
+    for (let i =0 ; i<n;i++){
+        right = right.next;
+    }
+
+    while(right !==null)
     {
-        this.head = null;
+        left = left.next;
+        right=right.next;
     }
 
-    append(val){
-        const newNode = new Node(val);
-       
-        if(this.head == null)
-        {
-            this.head = newNode;
-            return
-        }
-         let current = this.head;
-        while(current.next != null)
-        {
-            current = current.next;
-        }
+    left.next = left.next.next;
 
-        current.next = newNode;
-    }
+    return dummy.next;
 
-    getAll()
-    {
-        let current = this.head;
-        while(current !== null)
-        {
-            console.log(current.val);
-            current = current.next;
-        }
-    }
+
 }
-
-const list = new LinkedList();
-
-list.append(10);
-list.append(20);
-list.append(30);
-list.getAll();
->>>>>>> c5c813a (Desgin linked List)

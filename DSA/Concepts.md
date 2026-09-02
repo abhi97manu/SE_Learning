@@ -64,3 +64,9 @@ The concept of linked list is to connect all the nodes. a Node is made up of a v
 append() : create a new Node and  initialise the current pointer then loop through until the current.next is not null (cause we are appending at the end) assigning the current value to current.next. when we reach we simply add the new node to current.next.
 
 getAll () : loop through until current becomes null. log the current.val and assign current.next to current;
+
+
+## Remove Nth Element from End of List ##
+**As the topic suggest remove the node from nth position from end**
+
+We will be given a list and the nth. THe approah will be using two pointers, left pointing to dummy and right pointing to list head and a dmmy node that will point to list head. then we will loop through right to be places at nth distance from left. why ?? because once right reached the end ..left pointer will be pointing to the nth from end. Then we traverese until right is not null.. and once there come out of loop and assign left.next.next to the left.next.. to delte the element

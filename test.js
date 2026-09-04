@@ -1,12 +1,17 @@
-function depthSum (node) {
 
+
+let maxDiamemter = 0
+function longestPath (node) {
+
+    
     if (node === null)
     {
         return 0;
     }
-    
-    let left = depthSum(node.left);
-    let right = depthSum(node.right);
 
-    return 1 + Math.max(left,right);
+   let Lheight = longestPath(node.left);
+   let Rheight = longestPath(node.right);
+
+    maxDiamemter = Math.max(maxDiamemter , Lheight + Rheight );
+   return 1+ Math.max(Lheight, Rheight);
 }

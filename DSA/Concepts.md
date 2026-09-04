@@ -75,3 +75,13 @@ We will be given a list and the nth. THe approah will be using two pointers, lef
 ## Tree Depth ##
 **Problem is to find depth in a tree**
 The tree consist of nodes (val, left,right). since at every node we need to check the condition it is prefere to use recursion. Now we will hcekc the base case , if node ==null we will return 0 , if there is no node then depth is 0. then we will maintain left and right , both will have call the recursion function with node.left and node.right respectively. then we will return max of left and right values + 1 (last node depth is considered 1)
+
+
+## Path Sum ##
+**need to find if the sum of tree path has the target value or not**
+it requires depth first search with pre order update. the base condition will be same to return 0 on node == null. We will subtract the mode's values with the total to get the remaining and pass that remaining to child and if node's left and right are null that means we are at leaf node so we check if at leaf node did we get the remaining as 0 if yes, true if not , we will continue to search left and right.
+
+
+## Diameter of tree ##
+**Find the longest path in the tree**
+Same post order approach. We will traverse through each nodeleft and right find the max Diameter by calculating max of lheight + rheight and maxDiameter, and returning the depth of that node as discusses in depth question.

@@ -70,3 +70,8 @@ getAll () : loop through until current becomes null. log the current.val and ass
 **As the topic suggest remove the node from nth position from end**
 
 We will be given a list and the nth. THe approah will be using two pointers, left pointing to dummy and right pointing to list head and a dmmy node that will point to list head. then we will loop through right to be places at nth distance from left. why ?? because once right reached the end ..left pointer will be pointing to the nth from end. Then we traverese until right is not null.. and once there come out of loop and assign left.next.next to the left.next.. to delte the element
+
+
+## Tree Depth ##
+**Problem is to find depth in a tree**
+The tree consist of nodes (val, left,right). since at every node we need to check the condition it is prefere to use recursion. Now we will hcekc the base case , if node ==null we will return 0 , if there is no node then depth is 0. then we will maintain left and right , both will have call the recursion function with node.left and node.right respectively. then we will return max of left and right values + 1 (last node depth is considered 1)

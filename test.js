@@ -1,30 +1,12 @@
-class Node {
-    constructor(val){
-        this.val = val;
-        this.next = null;
-    }
-}
+function depthSum (node) {
 
-function removeNth(list , n){
-
-    let dummy = new Node(0);
-    dummy.next = list.head;
-
-    let left = list.head;
-    let right = list.head;
-    for (let i =0 ; i<n;i++){
-        right = right.next;
-    }
-
-    while(right !==null)
+    if (node === null)
     {
-        left = left.next;
-        right=right.next;
+        return 0;
     }
+    
+    let left = depthSum(node.left);
+    let right = depthSum(node.right);
 
-    left.next = left.next.next;
-
-    return dummy.next;
-
-
+    return 1 + Math.max(left,right);
 }

@@ -80,3 +80,8 @@ The tree consist of nodes (val, left,right). since at every node we need to chec
 ## BFS ##
 **scan the tree breadth wise**
 to scan the tree breadth wise we will use queue to keep track of the level. Will initialise the queue with the root. Also a variable front..to keep track of the header.  then until the queue gets emptied we will make node which will save the current header node in the queue then print the node value present in the queue. if we have node.left then we will push it into the queue , same with the right. 
+
+
+**print the each level of the tree as array **
+since we need each depth as array, we will keep track of the level. Keeping the queue as required for every BFS and the front to track the header.Once in the loop for queue.length ... we will find level size which is queue length - front. we need this size to get each node in this size and push them in new array. if the size is 3 that means that level has 3 nodes and they belong to one array.
+then we can push left node and right node to the queue. and once we come out of the loop we will push this level array into the result.

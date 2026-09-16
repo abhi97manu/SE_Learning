@@ -1,17 +1,35 @@
+function bfs(root)
+{
+    let queue = [root]
+    let front =0;
 
+    let levelSize= 0;
+    let array = []
+    let result = [];
 
-let maxDiamemter = 0
-function longestPath (node) {
-
-    
-    if (node === null)
+    while (queue.length > 0)
     {
-        return 0;
+        
+        levelSize = queue.length - front;
+        for (let i = 0; i< levelSize; i++)
+        {
+            let node = queue[front++]
+            array.push(node.val)
+
+            if(node.left)
+            {
+                queue.push(node.left)
+            }
+            if(node.right)
+            {
+                queue.push(node.right)
+            }
+        }
+
+        result.push(array)
+
+
     }
-
-   let Lheight = longestPath(node.left);
-   let Rheight = longestPath(node.right);
-
-    maxDiamemter = Math.max(maxDiamemter , Lheight + Rheight );
-   return 1+ Math.max(Lheight, Rheight);
 }
+
+
